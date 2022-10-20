@@ -1,0 +1,13 @@
+<input
+  type="text"
+  placeholder="Artistas, Musicas, Playlists"
+  (keyup.Enter)="buscar()"
+>
+<div class="sugestoes flex">
+  <span
+    *ngFor="let busqueda of Recientes" 
+    
+  >
+    {{ busqueda }}
+  </span>
+</div>

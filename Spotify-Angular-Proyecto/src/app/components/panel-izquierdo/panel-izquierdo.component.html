@@ -1,0 +1,58 @@
+<div class="menus flex">
+  <div class="image-container flex flex-center">
+    <img src="assets/images/spotify-logo.png" alt="" srcset="">
+  </div>
+
+  <div class="menu-container flex opcoes">
+    <app-boton-menu
+      [descripcion]="'Home'"
+      [selecionado]="menuSelecionado === 'Home'"
+      (click)="botaoClick('Home')"
+    >
+      <fa-icon [icon]="homeIcone" ></fa-icon>
+    </app-boton-menu>
+
+    <app-boton-menu 
+      [descripcion]="'Buscar'" 
+      [selecionado]="menuSelecionado === 'Pesquisar'"
+      (click)="botaoClick('Pesquisar')"
+    >
+      <fa-icon [icon]="buscarIcone" ></fa-icon>
+    </app-boton-menu>
+
+    <app-boton-menu 
+      [descripcion]="'Artistas'"
+      [selecionado]="menuSelecionado === 'Artistas'"
+      (click)="botaoClick('Artistas')"
+    >
+      <fa-icon [icon]="artistaIcone" ></fa-icon>
+    </app-boton-menu>
+
+  </div>
+
+  <div class="menu-container flex">
+    <span class="playlist-titulo">
+      PLAYLISTS
+    </span>
+
+    <div class="playlist-scroll">
+      <app-boton-menu
+        *ngFor="let playlist of playlists"
+        [descripcion]="playlist.name"
+        [selecionado]="menuSelecionado === playlist.id"
+        (click)="irParaPlaylist(playlist.id)"
+        > 
+        <fa-icon
+          [icon]="playlistIcone"
+        ></fa-icon>
+      </app-boton-menu>
+      
+    </div>
+
+  </div>
+
+</div>
+
+<div class="usuario-info">
+  <app-rodape-usuario></app-rodape-usuario>
+</div>
